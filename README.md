@@ -1,4 +1,4 @@
-# html_to_text_article
+# html_article_to_text
 
 **Turns html article to text. Removes all html tags, making some grammatically changes.**
 
