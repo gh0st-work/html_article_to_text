@@ -40,6 +40,7 @@ def html_to_text(html, headers_max_words_count):
 
 	text_to_join = []
 	text_splitted = text.split('\n')
+	last_header = False
 	for text_part in text_splitted:
 		if text_part:
 			text_part_splitted = text_part.split(' ')
