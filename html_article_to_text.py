@@ -41,12 +41,18 @@ def html_to_text(html, headers_max_words_count):
 	text_to_join = []
 	text_splitted = text.split('\n')
 	for text_part in text_splitted:
+		last_header = False
 		if text_part:
 			text_part_splitted = text_part.split(' ')
 			if len(text_part_splitted) <= headers_max_words_count:
-				text_to_join.append('\n\n' + text_part + '\n')
+				if last_header:
+					text_to_join.append(text_part)
+				else:
+					text_to_join.append('\n\n' + text_part + '\n')
+				last_header = True
 			else:
 				text_to_join.append(text_part)
+				last_header = False
 		else:
 			text_to_join.append(text_part)
 	text = '\n'.join(text_to_join)
